@@ -66,13 +66,13 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a [routerLink]="['/admin/index']" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-table fa-fw"></i>Contacts Table<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="flot.html">List Contact</a>
+                            <a [routerLink]="['/admin/contact']">List Contact</a>
                         </li>
                         <li>
                             <a href="morris.html">Add Contact</a>
