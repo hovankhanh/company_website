@@ -9,6 +9,10 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { PostsComponent } from './pages/posts/posts.component';
+import { PostListComponent } from './pages/posts/post-list/post-list.component';
+import { PostAddComponent } from './pages/posts/post-add/post-add.component';
+import { PostEditComponent } from './pages/posts/post-edit/post-edit.component';
 
 const appRoutes: Routes=[
   {
@@ -37,7 +41,11 @@ const appRoutes: Routes=[
     HeaderComponent,
     IndexComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    PostsComponent,
+    PostListComponent,
+    PostAddComponent,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,
