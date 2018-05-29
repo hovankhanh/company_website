@@ -29,6 +29,23 @@ const appRoutes: Routes=[
         {
           path :"contact",
           component : ContactComponent
+        },
+        {
+          path : 'posts',
+            children:[
+              {
+                path : "post-list",
+                component : PostListComponent
+              },
+              {
+                path : "post-add",
+                component : PostAddComponent
+              },
+              {
+                path: ":id/edit",
+                component  : PostEditComponent
+              }
+            ]
         }
       ]
   }

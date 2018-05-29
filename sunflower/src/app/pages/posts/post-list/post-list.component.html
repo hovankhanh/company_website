@@ -1,3 +1,33 @@
-<p>
-  post-list works!
-</p>
+<div class="card">
+	<div class="card-header">
+		<h3 class="card-title">
+			Post Management
+		</h3>
+	</div>
+	<div class="card-body">
+		<button type="button" class="btn btn-info" [routerLink]="['/posts/add']">Add Post</button>
+		<table class="table" style="margin-top: 10px;">
+		  	<thead>
+			    <tr>
+		      		<th scope="col"># 			</th>
+			      	<th scope="col">Title		</th>
+			      	<th scope="col">Content		</th>
+			      	<th scope="col">Date_Post	</th>
+			      	<th scope="col">Action		</th>
+			    </tr>
+		  	</thead>
+		  	<tbody>
+			    <tr *ngFor="let item of courses;let i = index">
+			      	<th>{{ i + 1 			}}</th>
+			      	<td>{{ item.title 		}}</td>
+			      	<td>{{ item.content     }}</td>
+			      	<td>{{ item.date_post 	}}</td>
+			      	<td>
+			      		<button type="button" class="btn btn-danger" [routerLink]="['/posts',item.id,'edit']">Edit</button>
+			      		<button type="button" class="btn btn-success" (click)="onDeletePost(item.id)">Delete</button>
+			      	</td>
+			    </tr>
+		  	</tbody>
+		</table>
+	</div>
+</div>
