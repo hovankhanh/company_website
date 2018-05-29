@@ -9,22 +9,23 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './pages/login/login.component';
 
 const appRoutes: Routes=[
-  {
-    path :'',
-    component: IndexComponent
-  },
   {
     path :'admin',
       children:[
         {
-          path :"",
+          path :"index",
           component : IndexComponent
         },
         {
           path :"contact",
           component : ContactComponent
+        },
+        {
+          path :"login",
+          component : LoginComponent
         }
       ]
   }
@@ -37,7 +38,8 @@ const appRoutes: Routes=[
     HeaderComponent,
     IndexComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
