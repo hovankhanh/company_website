@@ -1,18 +1,42 @@
-<form role="form" action="" method="POST" accept-charset="utf-8">
-	<legend>Add Post</legend>
+<form role="form" #addPostForm="ngForm" method="POST" accept-charset="utf-8">
+	<legend class="postadd">Add Post</legend>
 
-	<div class="form-group">
-		<label for="">Title</label>
-    	<input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter title" required >
-	</div>
-	<div class="form-group">
-		<label for="">Content</label>
-    	<textarea class="form-control" rows="5" placeholder="Enter content" required [(ngModel)]="course.content" [ngModelOptions]="{standalone: true}"></textarea>
-	</div>
-	<div class="form-group">
-		<label for="">Date_Post</label>
-    	<input type="number" class="form-control" placeholder="Enter fee" required [(ngModel)]="course.fee" [ngModelOptions]="{standalone: true}">
-	</div>
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<div class="form-group">
+			<label for="">Title</label>
+	    	<input type="text" class="form-control" name="title" required placeholder="Enter title" [(ngModel)]="post.title" #title="ngModel">
+		</div>
+		<!-- Check validation -->
+		<div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+			<div [hidden]="!title.errors.required">
+				<i class="fa fa-exclamation"></i>&nbsp;Title is required
+			</div>
+		</div>
 
-	<button type="submit" class="btn btn-primary" (click)="onAddPost()">Save</button>
+		<div class="form-group">
+			<label for="">Content</label>
+	    	<textarea class="form-control" name="content" rows="5" placeholder="Enter content" required [(ngModel)]="post.content" #content="ngModel"></textarea>
+		</div>
+		<!-- Check validation -->
+		<div *ngIf="content.errors && (content.dirty || content.touched)" class="alert alert-danger">
+			<div [hidden]="!content.errors.required">
+				<i class="fa fa-exclamation"></i>&nbsp;Content is required
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="">Date_Post</label>
+	    	<input type="date" class="form-control" name="date_post" required [(ngModel)]="post.date_post" #date_post="ngModel">
+		</div>
+		<!-- Check validation -->
+		<div *ngIf="date_post.errors && (date_post.dirty || date_post.touched)" class="alert alert-danger">
+			<div [hidden]="!date_post.errors.required">
+				<i class="fa fa-exclamation"></i>&nbsp;Date post is required
+			</div>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary" id="btn-save" [disabled]="!addPostForm.form.valid">Save</button>
+		</div>
+	</div>
 </form>

@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -13,43 +17,6 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { PostListComponent } from './pages/posts/post-list/post-list.component';
 import { PostAddComponent } from './pages/posts/post-add/post-add.component';
 import { PostEditComponent } from './pages/posts/post-edit/post-edit.component';
-
-const appRoutes: Routes=[
-  {
-    path :'',
-    component: IndexComponent
-  },
-  {
-    path :'admin',
-      children:[
-        {
-          path :"",
-          component : IndexComponent
-        },
-        {
-          path :"contact",
-          component : ContactComponent
-        },
-        {
-          path : 'posts',
-            children:[
-              {
-                path : "post-list",
-                component : PostListComponent
-              },
-              {
-                path : "post-add",
-                component : PostAddComponent
-              },
-              {
-                path: ":id/edit",
-                component  : PostEditComponent
-              }
-            ]
-        }
-      ]
-  }
-];
 
 
 @NgModule({
@@ -66,7 +33,10 @@ const appRoutes: Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
