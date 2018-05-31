@@ -40,7 +40,13 @@ export class PostsService {
   }
 
 	/** PUT: update the post on the server */
-	updatePost(post: Post): Observable<any> {
-	  return this.http.put(this.postsUrl, post, httpOptions);
-	}
+	// updatePost(post: Post): Observable<any> {
+	//   return this.http.put(this.postsUrl, post, httpOptions);
+	// }
+
+  updatePost(post: Post): Observable<any> {
+    const id = typeof post === 'number' ? post : post.id;
+    const url = `${this.postsUrl}/${id}`;
+        return this.http.put(url, post, httpOptions);
+  }
 }
