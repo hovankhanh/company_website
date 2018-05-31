@@ -1,18 +1,19 @@
-<form role="form" action="" method="POST" accept-charset="utf-8">
+<form role="form" method="POST" accept-charset="utf-8">
 	<legend class="postedit">Edit Post</legend>
-
+	
 	<div class="form-group">
 		<label for="">Title</label>
-    	<input type="text" class="form-control" placeholder="Enter title" required>
+    	<input type="text" class="form-control" [(ngModel)]="posts.title" [ngModelOptions]="{standalone: true}">
 	</div>
 	<div class="form-group">
 		<label for="">Content</label>
-    	<textarea class="form-control" rows="5" placeholder="Enter content" required></textarea>
+    	<textarea class="form-control" rows="5" [(ngModel)]="posts.content" [ngModelOptions]="{standalone: true}"></textarea>
 	</div>
 	<div class="form-group">
 		<label for="">Date_Post</label>
-    	<input type="date" class="form-control" required>
+    	<input type="date" class="form-control" [(ngModel)]="posts.date_post" [ngModelOptions]="{standalone: true}">
 	</div>
-
-	<button type="submit" class="btn btn-primary">Update</button>
+	
+	<button type="submit" class="btn btn-primary" (click)="save()">Update</button>
+	<button type="submit" class="btn btn-primary" (click)="goBack()">Cancle</button>
 </form>

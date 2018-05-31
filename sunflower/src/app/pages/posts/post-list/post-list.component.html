@@ -17,24 +17,14 @@
 			    </tr>
 		  	</thead>
 		  	<tbody>
-			    <!-- <tr *ngFor="let item of courses;let i = index"> -->
-			    <tr>
-			      	<!-- <th>{{ i + 1 			}}</th>
-			      	<td>{{ item.title 		}}</td>
-			      	<td>{{ item.content     }}</td>
-			      	<td>{{ item.date_post 	}}</td> -->
-			      	<th>1</th>
-			      	<td>Angular Trainer</td>
+			    <tr *ngFor="let my of posts;let i = index">
+			      	<th>{{ i + 1 			}}</th>
+			      	<td>{{ my.title 		}}</td>
+			      	<td>{{ my.content     	}}</td>
+			      	<td>{{ my.date_post 	}}</td>
 			      	<td>
-			      		<span>Senior about Angular</span><br>
-			      		<span>Have experiences working with Angular Framework, HTML/CSS/JavaScript </span><br>
-			      		<span>Good speak and writing English in office</span><br>
-			      		<span>Good attitude and responsibilities in work</span>
-			      	</td>
-			      	<td>2018-05-29</td>
-			      	<td>
-			      		<button type="button" class="btn btn-danger" [routerLink]="['/admin/posts','edit',1]">Edit</button>
-			      		<button type="button" class="btn btn-success" (click)="onDeletePost(item.id)">Delete</button>
+			      		<button type="button" class="btn btn-danger" [routerLink]="['/admin/posts','edit',my.id]">Edit</button>
+			      		<button type="button" class="btn btn-success" (click)="delete(my)">Delete</button>
 			      	</td>
 			    </tr>
 		  	</tbody>

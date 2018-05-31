@@ -4,39 +4,41 @@
 	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 		<div class="form-group">
 			<label for="">Title</label>
-	    	<input type="text" class="form-control" name="title" required placeholder="Enter title" [(ngModel)]="post.title" #title="ngModel">
+	    	<input type="text" class="form-control" #title required placeholder="Enter title" >
 		</div>
 		<!-- Check validation -->
-		<div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
+		<!-- <div *ngIf="title.errors && (title.dirty || title.touched)" class="alert alert-danger">
 			<div [hidden]="!title.errors.required">
 				<i class="fa fa-exclamation"></i>&nbsp;Title is required
 			</div>
-		</div>
+		</div> -->
 
 		<div class="form-group">
 			<label for="">Content</label>
-	    	<textarea class="form-control" name="content" rows="5" placeholder="Enter content" required [(ngModel)]="post.content" #content="ngModel"></textarea>
+	    	<textarea class="form-control" #content rows="5" placeholder="Enter content" required ></textarea>
 		</div>
 		<!-- Check validation -->
-		<div *ngIf="content.errors && (content.dirty || content.touched)" class="alert alert-danger">
+		<!-- <div *ngIf="content.errors && (content.dirty || content.touched)" class="alert alert-danger">
 			<div [hidden]="!content.errors.required">
 				<i class="fa fa-exclamation"></i>&nbsp;Content is required
 			</div>
-		</div>
+		</div> -->
 
 		<div class="form-group">
 			<label for="">Date_Post</label>
-	    	<input type="date" class="form-control" name="date_post" required [(ngModel)]="post.date_post" #date_post="ngModel">
+	    	<input type="date" class="form-control" #date_post required>
 		</div>
 		<!-- Check validation -->
-		<div *ngIf="date_post.errors && (date_post.dirty || date_post.touched)" class="alert alert-danger">
+		<!-- <div *ngIf="date_post.errors && (date_post.dirty || date_post.touched)" class="alert alert-danger">
 			<div [hidden]="!date_post.errors.required">
 				<i class="fa fa-exclamation"></i>&nbsp;Date post is required
 			</div>
-		</div>
+		</div> -->
 
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary" id="btn-save" [disabled]="!addPostForm.form.valid">Save</button>
+			<button type="submit" class="btn btn-primary" (click)="add(title.value,content.value,date_post.value)">Save</button>
+			<!-- <button type="submit" class="btn btn-primary" id="btn-save" [disabled]="!addPostForm.form.valid">Save</button> -->
+			<button type="submit" class="btn btn-primary" (click)="goBack()">Cancle</button>
 		</div>
 	</div>
 </form>
