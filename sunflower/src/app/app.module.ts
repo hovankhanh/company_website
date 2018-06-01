@@ -10,10 +10,16 @@ import { ContactComponent } from './pages/contact/contact.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
+import { AdminService } from './pages/services/admin.service';
+import {AuthguardGuard} from './pages/guards/authguard.guard';
+import { FormsModule } from '@angular/forms';
+
+
 
 const appRoutes: Routes=[
   {
     path :'admin',
+
       children:[
         {
           path :"index",
@@ -21,6 +27,7 @@ const appRoutes: Routes=[
         },
         {
           path :"contact",
+          canActivate:[AuthguardGuard],
           component : ContactComponent
         },
         {
@@ -43,9 +50,10 @@ const appRoutes: Routes=[
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AdminService,AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
