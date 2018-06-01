@@ -36,7 +36,7 @@ export class PostEditComponent implements OnInit {
 
   save(): void {
    	this.PostsService.updatePost(this.posts)
-   	.subscribe(() => this.goBack());
+   	.subscribe(() => this.goBack()) return;
  	}
 
 }
