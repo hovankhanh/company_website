@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Add Categories
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <form role="form">
+            <div class="form-group">
+                <label>Cate name</label>
+                <input class="form-control" #name_cate>
+            </div>
+            <button type="submit" class="btn btn-success" (click)="addCate(name_cate.value)">Save</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </form>
+    </div>
+</div>
