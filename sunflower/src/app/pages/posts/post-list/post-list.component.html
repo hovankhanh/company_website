@@ -1,0 +1,33 @@
+<div class="card">
+	<div class="card-header">
+		<h3 class="card-title">
+			Post Management
+		</h3>
+	</div>
+	<div class="card-body">
+		<button type="button" class="btn btn-info" [routerLink]="['/admin/posts/post-add']">Add Post</button>
+		<table class="table" style="margin-top: 10px;">
+		  	<thead>
+			    <tr>
+		      		<th scope="col"># 			</th>
+			      	<th scope="col">Title		</th>
+			      	<th scope="col">Content		</th>
+			      	<th scope="col">Date_Post	</th>
+			      	<th scope="col">Action		</th>
+			    </tr>
+		  	</thead>
+		  	<tbody>
+			    <tr *ngFor="let my of posts;let i = index">
+			      	<th>{{ i + 1 			}}</th>
+			      	<td>{{ my.title 		}}</td>
+			      	<td>{{ my.content     	}}</td>
+			      	<td>{{ my.date_post 	}}</td>
+			      	<td>
+			      		<button type="button" class="btn btn-danger" [routerLink]="['/admin/posts','edit',my.id]">Edit</button>
+			      		<button type="button" class="btn btn-success" (click)="delete(my)">Delete</button>
+			      	</td>
+			    </tr>
+		  	</tbody>
+		</table>
+	</div>
+</div>
